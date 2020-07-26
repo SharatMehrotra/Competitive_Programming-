@@ -10,7 +10,7 @@ int dfs(vector<vector<int>>&grid,int i,int j,int m, int n,vector<vector<bool>>&v
         if(i<0 || j<0 || i==m|| j==n|| grid[i][j]==0 || visited[i][j])
             return 0;
         visited[i][j]=true;
-        int maxval=maxfunc(dfs(grid,i+1,j, m,n, visited),dfs(grid,i-1,j,m,n,visited),dfs(grid,i,j-1,m,n, visited),dfs(grid,i,j+1,m,n,visited)); // cannot visit a visited vertex.Hence cannot backtrack
+        int maxval=maxfunc(dfs(grid,i+1,j, m,n, visited),dfs(grid,i-1,j,m,n,visited),dfs(grid,i,j-1,m,n, visited),dfs(grid,i,j+1,m,n,visited)); // cannot visit a visited vertex.Hence cannot backtrack and just choose the max of the initial 4 movements.
         visited[i][j]=false;  
         return maxval+grid[i][j];
     }
